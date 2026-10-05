@@ -1,0 +1,16 @@
+# Hadoop / HDFS Commands
+
+# Start Hadoop services
+start-all.sh
+
+# Check running Hadoop services
+jps
+
+# List files in the retail sales directory
+hadoop fs -ls /retailsales
+
+# View MapReduce output
+hadoop fs -cat /output2/part-r-00000
+
+# List cleaned output
+hadoop fs -ls /retailsales_clean_final

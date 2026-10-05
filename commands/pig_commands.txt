@@ -1,0 +1,22 @@
+# Apache Pig Commands
+
+# Start Pig
+pig
+
+# Load retail sales data
+retail_sales = LOAD '/retailsales'
+USING PigStorage(',')
+AS (...);
+
+# Group data by region
+grouped = GROUP retail_sales BY region;
+
+# Calculate total revenue, profit and record count
+result = FOREACH grouped GENERATE
+    group,
+    SUM(retail_sales.revenue),
+    SUM(retail_sales.profit),
+    COUNT(retail_sales);
+
+# Display result
+DUMP result;
